@@ -1,0 +1,47 @@
+{
+  "feature_columns": [
+    "Gender",
+    "Senior Citizen",
+    "Partner",
+    "Dependents",
+    "Tenure Months",
+    "Phone Service",
+    "Multiple Lines",
+    "Internet Service",
+    "Online Security",
+    "Online Backup",
+    "Device Protection",
+    "Tech Support",
+    "Streaming TV",
+    "Streaming Movies",
+    "Contract",
+    "Paperless Billing",
+    "Payment Method",
+    "Monthly Charges",
+    "Total Charges"
+  ],
+  "numeric_columns": [
+    "Tenure Months",
+    "Monthly Charges",
+    "Total Charges"
+  ],
+  "target_column": "Churn Value",
+  "categorical_columns": [
+    "Gender",
+    "Senior Citizen",
+    "Partner",
+    "Dependents",
+    "Phone Service",
+    "Multiple Lines",
+    "Internet Service",
+    "Online Security",
+    "Online Backup",
+    "Device Protection",
+    "Tech Support",
+    "Streaming TV",
+    "Streaming Movies",
+    "Contract",
+    "Paperless Billing",
+    "Payment Method"
+  ]
+}

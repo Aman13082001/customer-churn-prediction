@@ -1,1 +1,1 @@
-# pages package for app
+"""Pages module for the churn dashboard."""

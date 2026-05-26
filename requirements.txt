@@ -5,3 +5,6 @@ xgboost
 matplotlib
 seaborn
 jupyter
+streamlit
+plotly
+joblib
