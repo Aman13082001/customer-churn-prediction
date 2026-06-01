@@ -58,7 +58,7 @@ ChurnIQ is a **production-style ML dashboard** built to monitor, analyze, and pr
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/customer-churn-prediction.git
+git clone https://github.com/Aman13082001/customer-churn-prediction.git
 cd customer-churn-prediction
 
 # Install dependencies
@@ -251,11 +251,7 @@ pytest tests/ -v
 - No real customer PII included
 - Safe for portfolio & GitHub
 
-## 📝 License
 
-MIT License — feel free to use for projects and portfolio
-
-## 🙋 Author
 
 ## 🙋 Author
 
@@ -266,8 +262,6 @@ Data Science | Machine Learning | Data Analytics
 🔗 LinkedIn: https://www.linkedin.com/in/aman-kumar-sharma13/
 
 🔗 GitHub: https://github.com/Aman13082001
-
-📧 Contact: your-email@example.com
 
 ---
 
@@ -287,25 +281,3 @@ Open an issue or reach out!
 
 **Built with ❤️ using Streamlit**  
 *All free and open source — no paid APIs, no cloud costs.*
-
-| Model | Accuracy |
-|---------|---------|
-| Logistic Regression | 80.48% |
-| Decision Tree | 72.67% |
-| Random Forest | 79.49% |
-| XGBoost | 78.78% |
-
-Best ROC-AUC Score: 0.848
-
-## Project Structure
-
-data/
-notebooks/
-src/
-app/
-
-## Business Insights
-
-- Contract type strongly affects churn.
-- Monthly charges impact churn risk.
-- Long-tenure customers churn less frequently.
