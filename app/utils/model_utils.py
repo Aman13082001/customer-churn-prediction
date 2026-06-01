@@ -7,7 +7,6 @@ from pathlib import Path
 
 import joblib
 import pandas as pd
-import streamlit as st
 from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
@@ -18,7 +17,12 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 
-from utils.data_utils import FEATURE_COLUMNS, TARGET_COLUMN, load_data, preprocess_for_prediction
+from app.utils.data_utils import (
+    FEATURE_COLUMNS,
+    TARGET_COLUMN,
+    load_data,
+    preprocess_for_prediction,
+)
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 MODELS_DIR = BASE_DIR / "models"
@@ -32,7 +36,6 @@ MODEL_FILES = {
 }
 
 
-@st.cache_resource(show_spinner=False)
 def load_all_models() -> dict[str, object]:
     """Load all trained model artifacts from disk."""
     models = {}
@@ -44,22 +47,22 @@ def load_all_models() -> dict[str, object]:
     return models
 
 
-@st.cache_data(show_spinner=False)
 def load_metadata() -> dict:
     """Load saved metadata for model prediction and feature ordering."""
-    return json.loads(METADATA_PATH.read_text(encoding="utf-8"))
+    try:
+        return json.loads(METADATA_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
 
 
-@st.cache_data(show_spinner=False)
 def get_evaluation_split() -> tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
-    """Create a cached train/test split for model evaluation."""
+    """Create a train/test split for model evaluation."""
     df = load_data()
     X = df[FEATURE_COLUMNS]
     y = df[TARGET_COLUMN].astype(int)
     return train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
 
-@st.cache_data(show_spinner=False)
 def evaluate_all_models(X_test: pd.DataFrame, y_test: pd.Series) -> pd.DataFrame:
     """Evaluate all saved models on a test split and return metrics."""
     models = load_all_models()
@@ -82,7 +85,6 @@ def evaluate_all_models(X_test: pd.DataFrame, y_test: pd.Series) -> pd.DataFrame
     return pd.DataFrame(results).sort_values("roc_auc", ascending=False)
 
 
-@st.cache_data(show_spinner=False)
 def get_feature_importances(model_name: str) -> pd.DataFrame | None:
     """Return top-10 feature importances for tree-based models."""
     model = load_all_models()[model_name]
