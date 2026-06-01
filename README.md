@@ -257,8 +257,17 @@ MIT License — feel free to use for projects and portfolio
 
 ## 🙋 Author
 
-**Your Name**  
-[LinkedIn](https://linkedin.com/in/yourprofile) | [GitHub](https://github.com/yourusername) | [Portfolio](https://your-portfolio.com)
+## 🙋 Author
+
+**Aman Kumar Sharma**
+
+Data Science | Machine Learning | Data Analytics
+
+🔗 LinkedIn: https://www.linkedin.com/in/aman-kumar-sharma13/
+
+🔗 GitHub: https://github.com/Aman13082001
+
+📧 Contact: your-email@example.com
 
 ---
 
