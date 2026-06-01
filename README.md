@@ -2,7 +2,7 @@
 
 > An end-to-end machine learning dashboard for predicting customer churn, comparing ML models, and driving data-driven retention strategies.
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square) ![Streamlit](https://img.shields.io/badge/Streamlit-1.35-red?style=flat-square) ![scikit--learn](https://img.shields.io/badge/scikit--learn-1.4-orange?style=flat-square) ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square) ![Streamlit](https://img.shields.io/badge/Streamlit-1.35-red?style=flat-square) ![scikit--learn](https://img.shields.io/badge/scikit--learn-1.4-orange?style=flat-square)
 
 ## 🎯 Overview
 
