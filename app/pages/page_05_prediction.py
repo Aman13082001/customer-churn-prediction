@@ -109,7 +109,7 @@ def show_page() -> None:
             tv = st.selectbox("Streaming TV", valid_categories.get("Streaming TV", ["No"]), index=0)
             movies = st.selectbox("Streaming Movies", valid_categories.get("Streaming Movies", ["No"]), index=0)
         
-        predict_btn = st.button("🔮 Predict Churn Risk", width='stretch', type="primary")
+        predict_btn = st.button("🔮 Predict Churn Risk", type="primary")
     
     with col_result:
         st.markdown("### 🎯 Prediction Result")
@@ -178,7 +178,7 @@ def show_page() -> None:
                     paper_bgcolor="rgba(0,0,0,0)",
                     margin=dict(t=50, b=0, l=20, r=20)
                 )
-                st.plotly_chart(fig_gauge, width='stretch')
+                st.plotly_chart(fig_gauge, use_container_width=True)
                 
                 # Risk badge
                 badge_class = {

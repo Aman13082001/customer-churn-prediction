@@ -74,7 +74,7 @@ def show_page() -> None:
                 results[["model", "accuracy", "f1", "roc_auc"]].rename(
                     columns={"model": "Model", "accuracy": "Accuracy", "f1": "F1 Score", "roc_auc": "ROC-AUC"}
                 ),
-                width='stretch',
+                use_container_width=True,
                 hide_index=True
             )
         with col_perf2:

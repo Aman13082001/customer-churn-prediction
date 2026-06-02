@@ -50,7 +50,7 @@ def show_page() -> None:
                 template="plotly_dark"
             )
             fig_donut.update_layout(paper_bgcolor="rgba(0,0,0,0)")
-            st.plotly_chart(fig_donut, width='stretch')
+            st.plotly_chart(fig_donut, use_container_width=True)
         
         with col2:
             st.metric("Total Retained", f"{int(churn_counts.get(0, 0)):,}")
@@ -72,7 +72,7 @@ def show_page() -> None:
                 color_continuous_scale="Reds"
             )
             fig_contract.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
-            st.plotly_chart(fig_contract, width='stretch')
+            st.plotly_chart(fig_contract, use_container_width=True)
             
             insight_card("**Month-to-month contracts show the highest churn rate.** Contract type is a key retention lever — encouraging customers to upgrade from month-to-month to annual contracts can significantly reduce churn.")
     
@@ -90,7 +90,7 @@ def show_page() -> None:
                 markers=True
             )
             fig_tenure.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
-            st.plotly_chart(fig_tenure, width='stretch')
+            st.plotly_chart(fig_tenure, use_container_width=True)
             
             insight_card("**Early-stage customers (0-12 months) churn at much higher rates.** Focus retention efforts on the first year to improve lifetime value.")
     
@@ -109,7 +109,7 @@ def show_page() -> None:
                 template="plotly_dark"
             )
             fig_monthly.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
-            st.plotly_chart(fig_monthly, width='stretch')
+            st.plotly_chart(fig_monthly, use_container_width=True)
         
         with col_charges2:
             fig_total = px.box(
@@ -120,7 +120,7 @@ def show_page() -> None:
                 template="plotly_dark"
             )
             fig_total.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
-            st.plotly_chart(fig_total, width='stretch')
+            st.plotly_chart(fig_total, use_container_width=True)
         
         insight_card("**Pricing sensitivity is a factor.** Customers paying higher monthly charges may have competing alternatives or higher expectations for service quality.")
     
@@ -142,7 +142,7 @@ def show_page() -> None:
                     color_continuous_scale="Reds"
                 )
                 fig_internet.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
-                st.plotly_chart(fig_internet, width='stretch')
+                st.plotly_chart(fig_internet, use_container_width=True)
         
         with col_svc2:
             if "Payment Method" in df.columns:
@@ -157,7 +157,7 @@ def show_page() -> None:
                     color_continuous_scale="Reds"
                 )
                 fig_payment.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
-                st.plotly_chart(fig_payment, width='stretch')
+                st.plotly_chart(fig_payment, use_container_width=True)
         
         insight_card("**Service type and payment method affect retention.** Fiber optic customers may require special attention to competitive positioning.")
 
@@ -181,13 +181,13 @@ def show_page() -> None:
     segment_cols = st.columns(3)
     with segment_cols[0]:
         st.write("**Contract Segments**")
-        st.dataframe(analysis["contract_rate"].sort_values("churn_rate", ascending=False), width="stretch", hide_index=True)
+        st.dataframe(analysis["contract_rate"].sort_values("churn_rate", ascending=False), use_container_width=True, hide_index=True)
     with segment_cols[1]:
         st.write("**Payment Method Segments**")
-        st.dataframe(analysis["payment_rate"].sort_values("churn_rate", ascending=False), width="stretch", hide_index=True)
+        st.dataframe(analysis["payment_rate"].sort_values("churn_rate", ascending=False), use_container_width=True, hide_index=True)
     with segment_cols[2]:
         st.write("**Internet Service Segments**")
-        st.dataframe(analysis["internet_rate"].sort_values("churn_rate", ascending=False), width="stretch", hide_index=True)
+        st.dataframe(analysis["internet_rate"].sort_values("churn_rate", ascending=False), use_container_width=True, hide_index=True)
 
     st.divider()
 
