@@ -60,7 +60,7 @@ def class_distribution_chart(df: pd.DataFrame):
 def contract_churn_rate_chart(df: pd.DataFrame):
     plot_df = (
         df.assign(churned=df["Churn Value"].astype(int))
-        .groupby("Contract")["churned"]
+        .groupby("Contract", observed=True)["churned"]
         .mean()
         .reset_index()
         .rename(columns={"churned": "Churn Rate"})
@@ -86,7 +86,7 @@ def tenure_churn_rate_chart(df: pd.DataFrame):
     )
     plot_df = (
         df.assign(churned=df["Churn Value"].astype(int))
-        .groupby("Tenure Group")["churned"]
+        .groupby("Tenure Group", observed=True)["churned"]
         .mean()
         .reset_index()
         .rename(columns={"churned": "Churn Rate"})
@@ -121,7 +121,7 @@ def monthly_charge_distribution_chart(df: pd.DataFrame):
 def payment_method_churn_rate_chart(df: pd.DataFrame):
     plot_df = (
         df.assign(churned=df["Churn Value"].astype(int))
-        .groupby("Payment Method")["churned"]
+        .groupby("Payment Method", observed=True)["churned"]
         .mean()
         .reset_index()
         .rename(columns={"churned": "Churn Rate"})
@@ -140,7 +140,7 @@ def payment_method_churn_rate_chart(df: pd.DataFrame):
 def internet_service_churn_rate_chart(df: pd.DataFrame):
     plot_df = (
         df.assign(churned=df["Churn Value"].astype(int))
-        .groupby("Internet Service")["churned"]
+        .groupby("Internet Service", observed=True)["churned"]
         .mean()
         .reset_index()
         .rename(columns={"churned": "Churn Rate"})

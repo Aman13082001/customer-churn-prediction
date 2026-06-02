@@ -7,6 +7,7 @@ from pathlib import Path
 
 import joblib
 import pandas as pd
+import streamlit as st
 from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
@@ -36,6 +37,7 @@ MODEL_FILES = {
 }
 
 
+@st.cache_resource
 def load_all_models() -> dict[str, object]:
     """Load all trained model artifacts from disk."""
     models = {}
@@ -47,6 +49,7 @@ def load_all_models() -> dict[str, object]:
     return models
 
 
+@st.cache_data
 def load_metadata() -> dict:
     """Load saved metadata for model prediction and feature ordering."""
     try:

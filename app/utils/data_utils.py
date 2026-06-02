@@ -35,6 +35,7 @@ FEATURE_COLUMNS = CATEGORICAL_COLUMNS + NUMERIC_COLUMNS
 VALID_CATEGORIES = {}
 
 
+@st.cache_data
 def load_data() -> pd.DataFrame:
     """Load and clean the processed churn dataset."""
     try:
@@ -141,28 +142,28 @@ def get_churn_analysis_data(df: pd.DataFrame | None = None) -> dict:
     return {
         "contract_rate": (
             df.assign(churned=churn_col)
-            .groupby("Contract")["churned"]
+            .groupby("Contract", observed=True)["churned"]
             .mean()
             .reset_index()
             .rename(columns={"churned": "churn_rate"})
         ),
         "tenure_rate": (
             df.assign(churned=churn_col, tenure_group=tenure_bins)
-            .groupby("tenure_group")["churned"]
+            .groupby("tenure_group", observed=True)["churned"]
             .mean()
             .reset_index()
             .rename(columns={"churned": "churn_rate"})
         ),
         "payment_rate": (
             df.assign(churned=churn_col)
-            .groupby("Payment Method")["churned"]
+            .groupby("Payment Method", observed=True)["churned"]
             .mean()
             .reset_index()
             .rename(columns={"churned": "churn_rate"})
         ),
         "internet_rate": (
             df.assign(churned=churn_col)
-            .groupby("Internet Service")["churned"]
+            .groupby("Internet Service", observed=True)["churned"]
             .mean()
             .reset_index()
             .rename(columns={"churned": "churn_rate"})

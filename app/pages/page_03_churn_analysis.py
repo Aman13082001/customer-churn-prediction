@@ -131,7 +131,7 @@ def show_page() -> None:
         
         with col_svc1:
             if "Internet Service" in df.columns:
-                internet_churn = df.groupby("Internet Service")[TARGET_COLUMN].mean().reset_index()
+                internet_churn = df.groupby("Internet Service", observed=True)[TARGET_COLUMN].mean().reset_index()
                 fig_internet = px.bar(
                     internet_churn,
                     x="Internet Service",
@@ -146,7 +146,7 @@ def show_page() -> None:
         
         with col_svc2:
             if "Payment Method" in df.columns:
-                payment_churn = df.groupby("Payment Method")[TARGET_COLUMN].mean().reset_index()
+                payment_churn = df.groupby("Payment Method", observed=True)[TARGET_COLUMN].mean().reset_index()
                 fig_payment = px.bar(
                     payment_churn,
                     x="Payment Method",

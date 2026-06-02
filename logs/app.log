@@ -1,0 +1,49 @@
+2026-05-27 19:11:47,753 - __main__ - INFO - ============================================================
+2026-05-27 19:11:47,753 - __main__ - INFO - Starting model training pipeline
+2026-05-27 19:11:47,753 - __main__ - INFO - ============================================================
+2026-05-27 19:11:47,753 - __main__ - INFO - Loading data...
+2026-05-27 19:11:47,796 - src.data.preprocessing - INFO - Loaded data from C:\Aman\Project\customer-churn-prediction\data\processed\churn_cleaned.csv: (7043, 20)
+2026-05-27 19:11:47,796 - __main__ - INFO - Raw data loaded: (7043, 20)
+2026-05-27 19:11:47,796 - __main__ - INFO - Preprocessing data...
+2026-05-27 19:11:47,800 - src.data.preprocessing - INFO - Filled 11 missing Total Charges values
+2026-05-27 19:11:47,822 - __main__ - INFO - Data preprocessed: (7043, 20)
+2026-05-27 19:11:47,823 - __main__ - INFO - Features shape: (7043, 19)
+2026-05-27 19:11:47,825 - __main__ - INFO - Target distribution: {0: 5174, 1: 1869}
+2026-05-27 19:11:47,833 - __main__ - INFO - Train/test split: (5634, 19) / (1409, 19)
+2026-05-27 19:11:47,833 - __main__ - INFO - ============================================================
+2026-05-27 19:11:47,833 - __main__ - INFO - Training 4 models with 5-fold CV
+2026-05-27 19:11:47,833 - __main__ - INFO - ============================================================
+2026-05-27 19:11:47,833 - __main__ - INFO - 
+Training Logistic Regression...
+2026-05-27 19:11:47,913 - __main__ - INFO -   Test Accuracy: 0.8020
+2026-05-27 19:11:48,273 - __main__ - INFO -   CV Accuracy (mean ± std): 0.8109 ± 0.0086
+2026-05-27 19:11:48,335 - __main__ - INFO - 
+Training Decision Tree...
+2026-05-27 19:11:48,418 - __main__ - INFO -   Test Accuracy: 0.7424
+2026-05-27 19:11:48,823 - __main__ - INFO -   CV Accuracy (mean ± std): 0.7405 ± 0.0145
+2026-05-27 19:11:48,828 - __main__ - INFO - 
+Training Random Forest...
+2026-05-27 19:11:49,680 - __main__ - INFO -   Test Accuracy: 0.7949
+2026-05-27 19:11:53,866 - __main__ - INFO -   CV Accuracy (mean ± std): 0.7954 ± 0.0072
+2026-05-27 19:11:53,920 - __main__ - INFO - 
+Training XGBoost...
+2026-05-27 19:11:54,165 - __main__ - INFO -   Test Accuracy: 0.7864
+2026-05-27 19:11:54,849 - __main__ - INFO -   CV Accuracy (mean ± std): 0.7919 ± 0.0072
+2026-05-27 19:11:54,854 - __main__ - INFO - 
+Saving metadata...
+2026-05-27 19:11:54,856 - __main__ - INFO - 
+============================================================
+2026-05-27 19:11:54,856 - __main__ - INFO - TRAINING COMPLETE
+2026-05-27 19:11:54,856 - __main__ - INFO - ============================================================
+2026-05-27 19:11:54,856 - __main__ - INFO - 
+Test Set Accuracy Scores:
+2026-05-27 19:11:54,857 - __main__ - INFO -   Logistic Regression: 0.8020
+2026-05-27 19:11:54,857 - __main__ - INFO -   Random Forest: 0.7949
+2026-05-27 19:11:54,857 - __main__ - INFO -   XGBoost: 0.7864
+2026-05-27 19:11:54,857 - __main__ - INFO -   Decision Tree: 0.7424
+2026-05-27 19:11:54,857 - __main__ - INFO - 
+Cross-Validation Accuracy Scores:
+2026-05-27 19:11:54,857 - __main__ - INFO -   Logistic Regression: 0.8109
+2026-05-27 19:11:54,857 - __main__ - INFO -   Random Forest: 0.7954
+2026-05-27 19:11:54,857 - __main__ - INFO -   XGBoost: 0.7919
+2026-05-27 19:11:54,857 - __main__ - INFO -   Decision Tree: 0.7405
