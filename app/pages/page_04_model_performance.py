@@ -177,7 +177,7 @@ def show_page() -> None:
                     plot_bgcolor="rgba(0,0,0,0)",
                     yaxis=dict(autorange="reversed")
                 )
-                st.plotly_chart(fig_fi, width="stretch")
+                st.plotly_chart(fig_fi, use_container_width=True)
             else:
                 st.info("Feature importances not available for this model.")
         except Exception as e:
