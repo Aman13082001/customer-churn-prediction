@@ -63,12 +63,8 @@ def show_page() -> None:
         display_df.columns = ["Model", "Accuracy", "Precision", "Recall", "F1 Score", "ROC-AUC"]
         
         st.dataframe(
-            display_df.style.highlight_max(
-                subset=["Accuracy", "Precision", "Recall", "F1 Score", "ROC-AUC"],
-                color="#1f4e2e"
-            ),
-            use_container_width=True,
-            hide_index=True
+            display_df,
+            width="stretch"
         )
         
         # Bar chart comparison
@@ -94,7 +90,7 @@ def show_page() -> None:
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)"
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
     
     # TAB 2: ROC Curves
     with tabs[1]:
@@ -124,7 +120,7 @@ def show_page() -> None:
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)"
         )
-        st.plotly_chart(fig_roc, use_container_width=True)
+        st.plotly_chart(fig_roc, width="stretch")
     
     # TAB 3: Confusion Matrix
     with tabs[2]:
@@ -150,7 +146,7 @@ def show_page() -> None:
             template="plotly_dark",
             paper_bgcolor="rgba(0,0,0,0)"
         )
-        st.plotly_chart(fig_cm, use_container_width=True)
+        st.plotly_chart(fig_cm, width="stretch")
     
     # TAB 4: Feature Importance
     with tabs[3]:
@@ -181,7 +177,7 @@ def show_page() -> None:
                     plot_bgcolor="rgba(0,0,0,0)",
                     yaxis=dict(autorange="reversed")
                 )
-                st.plotly_chart(fig_fi, use_container_width=True)
+                st.plotly_chart(fig_fi, width="stretch")
             else:
                 st.info("Feature importances not available for this model.")
         except Exception as e:
@@ -193,13 +189,13 @@ def show_page() -> None:
     cm, _, _ = get_confusion_matrix(selected_model)
     col1, col2 = st.columns(2)
     with col1:
-        st.plotly_chart(confusion_matrix_chart(cm, ["Stayed", "Churned"], selected_model), use_container_width=True)
+        st.plotly_chart(confusion_matrix_chart(cm, ["Stayed", "Churned"], selected_model), width="stretch")
     with col2:
         importances = get_feature_importances(selected_model)
         if importances is None:
             st.warning(f"{selected_model} does not expose tree-based feature importances.")
         else:
-            st.plotly_chart(feature_importance_chart(importances, selected_model), use_container_width=True)
+            st.plotly_chart(feature_importance_chart(importances, selected_model), width="stretch")
 
     st.divider()
 
