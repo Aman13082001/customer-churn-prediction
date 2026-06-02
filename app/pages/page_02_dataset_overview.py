@@ -45,14 +45,14 @@ def show_page() -> None:
     with tabs[0]:
         section_header("Data Schema & Types")
         schema_df = get_data_type_summary(df)
-        st.dataframe(schema_df, width='stretch', hide_index=True)
+        st.dataframe(schema_df, use_container_width=True, hide_index=True)
         
         missing_df = get_missing_summary(df)
         if missing_df.empty:
             st.success("✅ No missing values detected in the processed dataset.")
         else:
             st.warning("⚠️ Missing Values Detected")
-            st.dataframe(missing_df, width='stretch', hide_index=True)
+            st.dataframe(missing_df, use_container_width=True, hide_index=True)
     
     # TAB 2: Distributions
     with tabs[1]:
@@ -100,7 +100,7 @@ def show_page() -> None:
                 color_continuous_scale="RdBu"
             )
             fig.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, use_container_width=True)
             
             st.write("**Top Correlated Features:**")
             st.dataframe(
@@ -118,7 +118,7 @@ def show_page() -> None:
     with tabs[3]:
         section_header("Data Explorer")
         st.write(f"Showing all {len(df):,} rows")
-        st.dataframe(df, width='stretch')
+        st.dataframe(df, use_container_width=True)
         
         # Download option
         csv = df.to_csv(index=False)
@@ -134,7 +134,7 @@ def show_page() -> None:
     st.divider()
 
     st.subheader(" Descriptive Statistics")
-    st.dataframe(get_descriptive_stats(df), width="stretch", hide_index=True)
+    st.dataframe(get_descriptive_stats(df), use_container_width=True, hide_index=True)
 
     st.divider()
 
@@ -147,7 +147,7 @@ def show_page() -> None:
     )
     st.dataframe(
         corr_series.rename("Correlation Score").reset_index().rename(columns={"index": "Feature"}).head(6),
-        width="stretch",
+        use_container_width=True,
         hide_index=True,
     )
 
@@ -161,7 +161,7 @@ def show_page() -> None:
     elif filter_choice == "Stayed":
         preview_df = preview_df[preview_df["Churn Value"] == 0]
 
-    st.dataframe(preview_df.head(15), width="stretch")
+    st.dataframe(preview_df.head(15), use_container_width=True)
 
     st.divider()
 
